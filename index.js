@@ -1,7 +1,11 @@
 const inquirer = require('inquirer');
 const htmlFile = require ('./createHTML')
+const fs = require ('fs'); 
 
-
+let employeeTeam =[]; 
+let internTeam = []; 
+let engineerTeam = []; 
+let teamProfile = [employeeTeam, internTeam, engineerTeam]; 
 
 function teamCreation (){
 console.log ("Please take a moment to create your team!")
@@ -38,12 +42,21 @@ inquirer.prompt([
 
 .then(answers => {
   const employeeInput = answers;
+  employeeTeam.push(answers);
   if (answers.team == 'Engineer'){
     console.log ('Please add new Engineer');
     newEngineer();
   } else if (answers.team == 'Intern'){
-    newIntern();
+  // employeeTeam.push(answers); 
+  newIntern();
   } else (console.log ('Creating Team Profile'));
+  // employeeTeam.push(answers); 
+
+  // console.log(employeeTeam); 
+    TeamProfile(); 
+ 
+
+
 
 }); 
 }
@@ -86,13 +99,22 @@ function newEngineer(){
 
   .then(answers => {
     const employeeInput = answers;
+    engineerTeam.push(answers); 
     console.log ('Engineer added Successfully')
     if (answers.team == 'Engineer'){
       console.log ('Please add new Engineer');
+      // engineerTeam.push(answers); 
       newEngineer();
     } else if (answers.team == 'Intern'){
+    // engineerTeam.push(answers); 
       newIntern();
     } else (console.log ('Creating Team Profile'));
+    // engineerTeam.push(answers); 
+    // console.log(engineerTeam); 
+    TeamProfile(); 
+
+
+
   
   }); 
 
@@ -134,32 +156,39 @@ function newIntern(){
   ])
 
   .then(answers => {
-    const internInput = htmlFile(answers);
+    const employeeInput = answers;
+    internTeam.push(answers);
 
-    fs.writeFile('index.html', internInput, (err) =>
-    err ? console.log(err) : console.log('Successfully created index.html!'))
-
-    console.log ('Intern added Successfully')
+  console.log ('Intern added Successfully')
+    
     if (answers.team == 'Engineer'){
       console.log ('Please add new Engineer');
       newEngineer();
     } else if (answers.team == 'Intern'){
+      internTeam.push(answers);
       newIntern();
     } else (
-    console.log ('Creating Team Profile')
+    console.log ('Creating Team Profile'))
+    internTeam.push(answers);
+    TeamProfile(); 
+      
+   
 
-  
-  );
 
-  }); 
+  })
 
+}
+
+function TeamProfile (){
+  console.log(teamProfile)
 }
 
 
 module.exports =  teamCreation; 
 module.exports = newIntern;
 module.exports = newEngineer;
-
-
-
+module.exports = employeeTeam; 
+module.exports= internTeam; 
+module.exports = engineerTeam; 
+module.exports = TeamProfile; 
 
