@@ -3,7 +3,7 @@
   ![badge](https://img.shields.io/badge/License-MIT-blue) 
 
   ## Description
-  This is an application for generating a profile. 
+  This is an application for generating a team profile. 
 
   ## Table of Contents 
   - [Installation](#installation)
@@ -31,9 +31,9 @@
   
   ## Links
   
-  > Link to Repo: https://github.com/D-WILLI/Quiz
+  > Link to Repo: https://github.com/D-WILLI/Team-Profile-Generator-
   > 
-  > Link to Website: https://d-willi.github.io/Quiz/
+  > Link to Walk Through Video: https://drive.google.com/file/d/1tMq6A46IFoNwcSLs2SbRBLR3JwftCfxJ/view?usp=sharing
 
 
   ## License
